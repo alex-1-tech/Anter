@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, request, abort, jsonify
 from flask import make_response, session
 from flask_restful import reqparse, abort, Api, Resource
 import datetime
-from data import db_session
+from data import db_session, news_api
 from data.users import User
 from data.news import News
 from forms.news import NewsForm
@@ -144,6 +144,7 @@ def edit_news(id):
 
 def main():
     db_session.global_init("db/blogs.db")
+    app.register_blueprint(news_api.blueprint)
     app.run(port=8000, host='127.0.0.1')
 
 
