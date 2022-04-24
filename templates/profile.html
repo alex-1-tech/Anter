@@ -3,5 +3,36 @@
 {% block content %}
 
 
+<br>
+<div style="border: 2px solid lightblue; color: lightblue; padding: 20px;
+border-radius: 10px">
+    <h2 style="color: darkred"> Профиль: {{user.nickname}}</h2>
+    <h3>{{user.name}}</h3>
+    <h4>Обо мне: </h4>
+    <p>{{user.about}}</p>
+    {% if current_user == user %}
+    <a class="btn btn-danger" href="/logout">Выйти</a>
+    {% endif %}
+</div>
+<h1 style="text-align: center">Доступные посты</h1>
+{% if current_user == user %}
+<a href="news" class="btn btn-secondary">Добавить запись</a>
+{% endif %}
+<br>
+{% for item in news%}
+<br>
+{% if (item.is_private and current_user == user) or not item.is_private %}
 
+
+<div class="col-md6 border rounded">
+    <h2>{{item.title}}</h2>
+    <div>
+        {{item.content}}
+    </div>
+    <div>
+        Автор - {{item.user.nickname}}, Дата написания - {{item.created_date}}
+    </div>
+</div>
+{% endif %}
+{% endfor %}
 {% endblock %}
