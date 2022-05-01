@@ -1,18 +1,46 @@
 {% extends "base.html" %}
 
 {% block content %}
+<table>
+    <tr>
+        <td style="padding-right: 3%">
+            {% for item in news%}
+            <br>
 
-{% for item in news%}
-<br>
+            <div class="col-md6 border rounded">
+                <h2>{{item.title}}</h2>
+                <div>
+                    {{item.content}}
+                </div>
+                <div>
+                    <hr>
+                    Автор - <a href="/profile={{item.user.nickname}}">{{item.user.nickname}}</a>, Дата написания - {{item.created_date}}
+                </div>
+            </div>
+            {% endfor %}
+        </td>
+        <td style="padding-left: 0; padding-top: 40px; vertical-align: top;">
+            <div>
+                <h6>-> Лидеры (публикация)</h6>
+                <table>
+                    <thead>
+                    <tr >
+                        <th style="border-bottom: 2px solid #111;">№</th>
+                        <th style="border-bottom: 2px solid #111;">Пользователь</th>
+                        <th style="border-bottom: 2px solid #111;">Количество</th>
+                    </tr>
+                    </thead>
+                    {% for item in top%}
+                    <tr>
+                        <th>{{loop.index}}</th>
+                        <th><a href="/profile={{item[0]}}">{{item[0]}}</a></th>
+                        <th>{{item[1]}}</th>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </td>
+    </tr>
 
-<div class="col-md6 border rounded">
-    <h2>{{item.title}}</h2>
-    <div>
-        {{item.content}}
-    </div>
-    <div>
-        Автор - {{item.user.nickname}}, Дата написания - {{item.created_date}}
-    </div>
-</div>
-{% endfor %}
+</table>
 {% endblock %}

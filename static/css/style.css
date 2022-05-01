@@ -150,3 +150,8 @@ footer a {
 	font-size: 10px;
 	text-align: right;
 }
+
+th {
+	padding: 10px;
+
+}

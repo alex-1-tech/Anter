@@ -23,10 +23,10 @@
                 <a class="btn btn-success" href="/login">Войти</a>
             </p>
             {% endif %}
-            <!--        <form name="search" action="#" method="get">-->
-            <!--            <input type="text" name="q" placeholder="Search">-->
-            <!--            <button type="submit">GO</button>-->
-            <!--        </form>-->
+            <form name="search" action="" method="get">
+                <input type="text" name="name" placeholder="Search">
+                <button type="submit">GO</button>
+            </form>
         </div>
     </header>
     <nav>
@@ -43,29 +43,30 @@
     {% block content %}{% endblock %}
 </main>
 <footer>
-	<div id="footer">
-		<div id="twitter">
-	<h3>TWITTER FEED</h3>
-	<time datetime="2012-10-23"><a href="#">23 oct</a></time>
-<p>
-	In ultricies pellentesque massa a porta. Aliquam ipsum enim, hendrerit ut porta nec, ullamcorper et nulla. In eget mi dui, sit amet scelerisque nunc. Aenean aug
-</p>
-</div>
-		<div id="sitemap">
-	<h3>SITEMAP</h3>
-	<div>
-		<a href="/">Home</a>
-		<a href="/profile={{current_user.nickname}}">Profile</a>
+    <div id="footer">
+        <div id="twitter">
+            <h3>TWITTER FEED</h3>
+            <time datetime="2012-10-23"><a href="#">23 oct</a></time>
+            <p>
+                In ultricies pellentesque massa a porta. Aliquam ipsum enim, hendrerit ut porta nec, ullamcorper et
+                nulla. In eget mi dui, sit amet scelerisque nunc. Aenean aug
+            </p>
+        </div>
+        <div id="sitemap">
+            <h3>SITEMAP</h3>
+            <div>
+                <a href="/">Home</a>
+                <a href="/profile={{current_user.nickname}}">Profile</a>
 
-	</div>
+            </div>
 
-</div>
+        </div>
 
-		<div id="footer-logo">
-	<a href="/"><img src="../static/img/logo2.png" alt="Anter logo"></a>
-	<p>Copyright © 2021 Anter. A <a href="https://vk.com/id405502586">Alex</a> creation</p>
-</div>
-	</div>
+        <div id="footer-logo">
+            <a href="/"><img src="../static/img/logo2.png" alt="Anter logo"></a>
+            <p>Copyright © 2021 Anter. A <a href="https://vk.com/id405502586">Alex</a> creation</p>
+        </div>
+    </div>
 
 </footer>
 </body>
